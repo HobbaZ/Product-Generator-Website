@@ -1,0 +1,17 @@
+body {
+    margin:auto;
+    width:75%;
+    height:100%;
+    background-color: white;
+    color:black;
+}
+
+#projects {
+    margin: auto;
+    width: 60%;
+    height: 300px;
+}
+
+#regenerate {
+    margin:auto;
+}
