@@ -1,17 +1,54 @@
 body {
     margin:auto;
-    width:75%;
+    width:90%;
     height:100%;
-    background-color: white;
     color:black;
 }
 
-#projects {
+#projects, #aboutme, #portfolioHeader {
     margin: auto;
-    width: 60%;
-    height: 300px;
+    width: 65%;
 }
 
-#regenerate {
+#projects {
+    height:500px;
+    font-size: 25px;
+}
+
+#aboutme {
+    height:fit-content;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+#portfolioHeader {
+    height: fit-content;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 35px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+button {
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    border-radius: 5px;
     margin:auto;
+}
+
+button:hover {
+    background-color: red;
+}
+
+footer {
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    height:60px;
 }

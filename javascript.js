@@ -12,8 +12,21 @@ var timeSpan = ['the next quantum leap', 'next week', 'yesterday', 'the forfront
 var pace = ['break neck speed', 'snail\'s pace', 'spine snapping pace', 'lightspeed'];
 var shareWith = ['the world', 'their parents', 'their friends', 'their collegues', 'the Internet'];
 var secondWord = ['software', 'estate', 'rage', 'report', 'creations', 'stats', 'company','fast', 'rocket', 'velocity', 'arrow', 'express','solutions','ify', 'ly', 'nado', 'graph', 'kit', 'node', 'ooey', 'right', 'hub', 'gin', 'gen', 'en', 'ow', 'or', 'ent', 'ed'];
-var com = ['uk', 'au', 'hk', 'gov'];
+var com = ['.uk', '.au', '.hk', '.gov', ''];
 var position = ['admin', 'support', 'mail', 'tech', 'boss'];
+
+var greeting = ['Web Developer', 'Webtrepreneur', 'Hit me up with your cool web dev projects', 'Please hire me, I\'m desperate', 'Google Savant', 'Dream Creator', ''];
+
+var aboutmeDesc = [
+    "I'm a full stack web developer based in the Blue Mountains. I use " + GetRandom(programmingLanguage) +
+    " for front end work and " + GetRandom(programmingLanguage)+" for back end work." + "<br>",
+
+    "Building powerful applications with just " + GetRandom(programmingLanguage) + " and " + GetRandom(programmingLanguage) +
+    " I create the future in the present",
+
+    "Have a cool project idea but don't have the technical skills to get that idea into an app or website? That's where I come in. \
+    My strong foundations in " + GetRandom(programmingLanguage) + " will make me the ideal programmer to tackle your project"
+];
 
 //var colour = ['Red', 'LightGreen', 'LightBlue', 'LightYellow', 'LightGrey'];
 
@@ -25,6 +38,7 @@ var randNumber = Math.floor(Math.random()*arrayInput.length);
 return arrayInput[randNumber];
 }
 
+// Capitalizes first letter of each word
 function Capitaliser(input) {
     const eachWord = input.split(" ");
     for (let index = 0; index < eachWord.length; index++) {
@@ -105,24 +119,42 @@ function projectGenerator() {
 
         //Gets random name from nameGen, slices it to about half the word plus another random end word, 
         var projectName = "Name: " + Capitaliser(brandName);
-        var projectEmail = "Email: " + GetRandom(position) + "@" + emailer(brandName) + "." + GetRandom(com);
+        var projectEmail = "Email: " + GetRandom(position) + "@" + emailer(brandName) + ".com" + GetRandom(com);
 
         var title = chosenProject + " " + chosenInterest + " " + chosenProjectType;
 
-        var projectTitle = "<h1>"+ chosenProjectType + "</h1>" + "<br>" + Capitaliser(title) + "<hr>" + "<br>"
+        var projectTitle = "<h1>"+ Capitaliser(chosenProjectType) + "</h1>" + "<br>" + Capitaliser(title) + "<br>"
         + description  + "<br>" + projectName + "<br>" + projectEmail;
         return projectTitle;
     
 }
+//First loading of page
 
 //portfolio greeting
-document.getElementById("portfolioHeader").innerHTML="Zac Hobba: Web Developer";
+document.getElementById("portfolioHeader").innerHTML='Zac Hobba' + '<br>' + GetRandom(greeting);
 
 //about me section
-document.getElementById("aboutme").innerHTML=
-"I'm a full stack web developer based in the Blue Mountains. I use " + GetRandom(programmingLanguage) + " for front end work, for back end work I use " + GetRandom(programmingLanguage)+"." + "<br>" + "<br>";
 
-//projects section
-document.getElementById("projects").style.fontSize = "25px";
+
+document.getElementById("aboutme").innerHTML= GetRandom(aboutmeDesc);
 
 document.getElementById("projects").innerHTML= projectGenerator();
+
+//function to generate new product when clicked
+function generate() {
+    var projects = 5;
+    for (let index = 0; index < projects.length; index++) {
+        projectGenerator();
+    }
+
+    //generate new about me
+    document.getElementById("aboutme").innerHTML= GetRandom(aboutmeDesc);
+
+    //Generate header greeting
+    document.getElementById("portfolioHeader").innerHTML='Zac Hobba' + '<br>' + GetRandom(greeting);
+
+    //generate new product
+    document.getElementById("projects").innerHTML= projectGenerator();
+
+    
+}
