@@ -10,3 +10,6 @@ You'll notice that if you click the button a few times, some choices will always
 
 ### Technology used
 HTML, CSS, JavaScript, a lot of googling and a 20 year old Javascript textbook.
+
+### link
+https://hobbaz.github.io/Product-Generator-Website/
